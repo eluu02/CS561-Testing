@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  lisp-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lisp-dev
+    tty: true
+    volumes:
+      - ..:/workspace:cached
+    ports:
+      - "4005:4005"

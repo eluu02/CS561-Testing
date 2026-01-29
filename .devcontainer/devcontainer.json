@@ -1,0 +1,21 @@
+{
+  "name": "Lisp Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rheller.alive"
+      ],
+      "settings": {
+        "alive.repl.startSwankAutomatically": true,
+        "alive.repl.swankPort": 4005,
+        "alive.repl.sbclPath": "/usr/bin/sbcl",
+        "alive.repl.connectOnStartup": true
+      }
+    }
+  },
+  "postStartCommand": "sbcl --load /root/.quicklisp/setup.lisp --eval '(ql:quickload :swank)' --eval '(swank:create-server :port 4005 :dont-close t)'",
+  "remoteUser": "root"
+}
